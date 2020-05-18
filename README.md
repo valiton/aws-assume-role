@@ -1,7 +1,11 @@
+# aws-assume-role-cicd
 # aws-assume-role
 
-CLI for easy AWS role-assumption CI/CD pipeline.
-Makes use of the `env` cli command which is available on nearly all standard shells.
+Simple CLI for running commands in the context an assumed AWS role, such as a
+CI/CD pipeline or any other script.
+
+This tool fetches temporary AWS credentials for an assumed IAM role so that it
+can be used together with the `env` command which is available in nearly all standard shells.
 
 ## Installation
 
@@ -11,16 +15,23 @@ Makes use of the `env` cli command which is available on nearly all standard she
 
 The `env` command (standard in most shells) allows to run command with certain environment
 variables.
+(If you are unsure you can test if `env` is available by running `which env`).
 
-The example use `aws s3 ls` but you can run any command that talks to the AWS API there.
+You can the call commands that in the context of an assumed role with the following pattern.
 
-### with explicit option
+```sh
+env [NAME=VALUE ...] command [arg ...]
+```
+
+The examples below use `aws s3 ls` but you can run any command that talks to the AWS API there.
+
+### Example with explicit option
 
 ```sh
 env $(assume-role --role arn:aws:iam::123456789:role/role-name) aws s3 ls
 ```
 
-### with role passed via env variable
+### Example with role passed via env variable
 ```sh
 # with env variable
 export AWS_ROLE="arn:aws:iam::123456789:role/role-name"
