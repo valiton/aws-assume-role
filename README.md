@@ -15,8 +15,8 @@ variables.
 The example use `aws s3 ls` but you can run any command that talks to the AWS API there.
 
 ### with explicit option
+
 ```sh
-env $(assume-role --role arn:aws:iam::123456789:role/role-name) aws s3 ls
 env $(assume-role --role arn:aws:iam::123456789:role/role-name) aws s3 ls
 ```
 
