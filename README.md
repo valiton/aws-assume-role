@@ -43,7 +43,7 @@ env $(assume-role) aws s3 ls
 # when package is not installed yet previously
 env $(npx -p @valiton/aws-assume-role assume-role) aws s3 ls
 
-# when package has been installed already previously
+# when package has been installed already previously the example can be shortened to this:
 env $(npx assume-role) aws s3 ls
 ```
 
