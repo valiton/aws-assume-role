@@ -40,7 +40,7 @@ const assumeRole = (role, duration, debug) => {
 
 const run = () => {
   const { role, duration, debug } = argv;
-  if (debug) console.log("args: ", JSON.stringify(argv, null, 2));
+  if (debug) console.log("args: ", { role, duration, debug });
   if (!role) return Promise.resolve();
   return assumeRole(role, duration, debug);
 };
