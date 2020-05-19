@@ -26,22 +26,25 @@ env [NAME=VALUE ...] command [arg ...]
 
 The examples below use `aws s3 ls` but you can run any command that talks to the AWS API there.
 
-### Example with explicit option
+### Example: Passing role explicitly
 
 ```sh
 env $(assume-role --role arn:aws:iam::123456789:role/role-name) aws s3 ls
 ```
 
-### Example with role passed via env variable
+### Example: Passing role via environment variable
 ```sh
 export AWS_ROLE="arn:aws:iam::123456789:role/role-name"
 env $(assume-role) aws s3 ls
 ```
 
-### Example with npx
+### Example: Running with npx
 ```sh
-export AWS_ROLE="arn:aws:iam::123456789:role/role-name"
+# when package is not installed yet previously
 env $(npx -p @valiton/aws-assume-role assume-role) aws s3 ls
+
+# when package has been installed already previously
+env $(npx assume-role) aws s3 ls
 ```
 
 ## Help
