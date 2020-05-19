@@ -40,7 +40,7 @@ env $(npx assume-role) aws s3 ls
 
 # when package has been installed globally:
 env $(assume-role) aws s3 ls
-``: Running with np`
+```
 
 ## Help
 
@@ -53,6 +53,6 @@ Options:
   -r --role [arn]          Role ARN to assume (env AWS_ROLE default)
   -d --duration [seconds]  Session length (30 minute default) (default: 1800)
   -b --debug
-  -h, --help               output usage informatio
+  -h --help               output usage information
 ```
 
