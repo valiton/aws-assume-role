@@ -8,7 +8,6 @@ can be used together with the `env` command which is available in nearly all sta
 
 ## Installation
 
-
 `npm i @valiton/aws-assume-role --save-dev`
 
 ## Usage in Script
@@ -26,24 +25,17 @@ env [NAME=VALUE ...] command [arg ...]
 
 The examples below use `aws s3 ls` but you can run any command that talks to the AWS API there.
 
-### Example: Passing role explicitly
-
+### Examples
 ```sh
-env $(assume-role --role arn:aws:iam::123456789:role/role-name) aws s3 ls
-```
-
-### Example: Passing role via environment variable
-```sh
+# set the AWS_ROLE as an env var
 export AWS_ROLE="arn:aws:iam::123456789:role/role-name"
-env $(assume-role) aws s3 ls
-```
+# alternatively you can add the --role option
+#   assume-role --role arn:aws:iam::123456789:role/role-name
 
-### Example: Running with npx
-```sh
 # when package is not installed yet previously
 env $(npx -p @valiton/aws-assume-role assume-role) aws s3 ls
 
-# when package has been installed already previously the example can be shortened to this:
+# when package has been installed already previously, the example can be shortened to this:
 env $(npx assume-role) aws s3 ls
 
 # when package has been installed globally:
