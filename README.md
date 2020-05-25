@@ -33,7 +33,7 @@ export AWS_ROLE="arn:aws:iam::123456789:role/role-name"
 #   assume-role --role arn:aws:iam::123456789:role/role-name
 
 # when package is not installed yet previously
-env $(npx -p @valiton/aws-assume-role assume-role) aws s3 ls
+env $(npx @valiton/aws-assume-role) aws s3 ls
 
 # when package has been installed globally:
 env $(assume-role) aws s3 ls
