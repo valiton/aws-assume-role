@@ -1,6 +1,6 @@
 {
   "name": "@valiton/aws-assume-role",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI for assuming an AWS role in a terminal session",
   "author": "Valiton GmbH",
   "license": "MIT",
