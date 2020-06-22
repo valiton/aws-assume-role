@@ -41,7 +41,12 @@ const assumeRole = (role, duration, debug) => {
 const run = () => {
   const { role, duration, debug } = argv;
   if (debug) console.log("args: ", { role, duration, debug });
-  if (!role) return Promise.resolve();
+  if (!role)
+    return Promise.reject(
+      new Error(
+        "No role is set via 'AWS_ROLE env var' or '--role option'. See --help."
+      )
+    );
   return assumeRole(role, duration, debug);
 };
 
